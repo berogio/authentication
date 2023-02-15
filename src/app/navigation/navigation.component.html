@@ -1,29 +1,17 @@
-<nav class="navbar navbar-expand-lg bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <button mat-fab extended routerLink="/" color="primary">
-                    <mat-icon>home</mat-icon>
-                        Home
-                    </button>
-
-                </li>
-                <li class="nav-item">
-                    <button mat-fab extended routerLink="login" color="warn">
-                    <mat-icon>home</mat-icon>
-                       LOGIN
-                    </button>
-                </li>
-                <li class="nav-item">
-                </li>
-                <li class="nav-item">
-                </li>
-            </ul>
-        </div>
-    </div>
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">Navbar</a>
+    <form class="form-inline">
+        <button mat-fab extended routerLink="login" color="warn">
+        <mat-icon>home</mat-icon>
+           LOGIN
+        </button>
+        <button mat-fab extended routerLink="registration" color="warn">
+            <mat-icon>home</mat-icon>
+            Registration
+        </button>
+        <button mat-fab extended routerLink="/" color="primary">
+            <mat-icon>home</mat-icon>
+            Home
+        </button>
+    </form>
 </nav>
