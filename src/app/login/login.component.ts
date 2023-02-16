@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsersService } from '../service/users.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-  constructor(private _router: Router) {}
+export class LoginComponent implements OnInit {
+  constructor(private _router: Router, private usersService: UsersService) {}
+
+  ngOnInit(): void {
+    this.onGetUsers();
+  }
 
   test = new FormControl('', [Validators.required]);
   loginForm = new FormGroup({
@@ -30,5 +35,13 @@ export class LoginComponent {
     return this.loginForm.controls.email.hasError('email')
       ? 'Not a valid email'
       : '';
+  }
+
+  onGetUsers(): void {
+    this.usersService.getUsers().subscribe(
+      (response) => console.log(response),
+      (error: any) => console.log(error),
+      () => console.log('Done getting Users!')
+    );
   }
 }
