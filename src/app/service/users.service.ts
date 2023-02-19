@@ -12,4 +12,7 @@ export class UsersService {
   getUsers(): Observable<Users[]> {
     return this.http.get<Users[]>('http://localhost:8000/');
   }
+  // postUsers(): Observable<Users[]> {
+  //   return this.http.post<Users[]>('http://localhost:8000/');
+  // }
 }

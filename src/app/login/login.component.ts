@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
     this.onGetUsers();
   }
 
-  test = new FormControl('', [Validators.required]);
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
