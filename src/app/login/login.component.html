@@ -1,18 +1,16 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input type="text" matInput placeholder="password" formControlName="password" />
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Confirm</mat-label>
-        <input type="text" matInput placeholder="Confirm password" formControlName="Confirmpassword" />
-    </mat-form-field>
-    <mat-form-field>
         <mat-label>Email</mat-label>
         <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email" />
         <mat-error *ngIf="this.loginForm.controls.email.invalid">
             {{getErrorMessage()}}
         </mat-error>
     </mat-form-field>
-    <button mat-raised-button type="submit">Submit</button>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="text" matInput placeholder="password" formControlName="password" />
+    </mat-form-field>
+    <button mat-fab extended type="submit">Submit
+        <mat-icon>home</mat-icon>
+    </button>
 </form>

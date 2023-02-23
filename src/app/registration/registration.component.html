@@ -1,18 +1,17 @@
-<form [formGroup]="RegForm" (ngSubmit)="onCreateUser()">
+<form [formGroup]="RegForm" (ngSubmit)="onCreateUser()" method="POST">
     <mat-form-field appearance="fill">
         <mat-label>Vorname</mat-label>
-        <input matInput name="Vorname" formControlName="Vorname" />
+        <input matInput name="vorname" formControlName="Vorname" />
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Nachname</mat-label>
-        <input matInput name="Nachname" formControlName="Nachname" />
+        <input matInput name="nachname" formControlName="Nachname" />
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput name="email" formControlName="Email" />
     </mat-form-field>
-    <button mat-fab extended type="submit">
-    <mat-icon>home</mat-icon>
-    submit
-  </button>
+    <button mat-fab extended type="submit">Submit
+        <mat-icon>home</mat-icon>
+    </button>
 </form>
