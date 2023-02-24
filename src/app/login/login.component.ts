@@ -35,11 +35,17 @@ export class LoginComponent implements OnInit {
       : '';
   }
 
-  onGetUsers(): void {
-    this.usersService.getUsers().subscribe(
-      (response) => console.log(response),
-      (error: any) => console.log(error),
-      () => console.log('Done getting Users!')
-    );
+  onGetUsers() {
+    if (this.loginForm.valid) {
+      fetch('http://localhost:8000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.loginForm.value),
+      }).then((response) => {
+        if (response.status === 200) {
+          this._router.navigate(['/panel']);
+        }
+      });
+    }
   }
 }
