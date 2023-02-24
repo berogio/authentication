@@ -1,16 +1,20 @@
-<form [formGroup]="loginForm" (ngSubmit)="onGetUsers()">
-    <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email" />
-        <mat-error *ngIf="this.loginForm.controls.email.invalid">
-            {{getErrorMessage()}}
-        </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input type="text" matInput placeholder="password" formControlName="password" />
-    </mat-form-field>
-    <button mat-fab extended type="submit">Submit
-        <mat-icon>home</mat-icon>
-    </button>
-</form>
+<div class="d-flex justify-content-center align-items-center">
+    <mat-card class="w-50">
+        <form [formGroup]="loginForm" (ngSubmit)="onGetUsers()" class="d-flex flex-column">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email" />
+                <mat-error *ngIf="this.loginForm.controls.email.invalid">
+                    {{getErrorMessage()}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="text" matInput placeholder="password" formControlName="password" />
+            </mat-form-field>
+            <button mat-raised-button type="submit">Submit
+                <mat-icon>cached</mat-icon>
+            </button>
+        </form>
+    </mat-card>
+</div>

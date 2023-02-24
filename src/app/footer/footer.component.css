@@ -1,0 +1,43 @@
+.footer {
+    background-color: #563d7c;
+    height: 90px;
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.icon-group {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.default {
+    width: 20px;
+    height: 20px;
+}
+
+.fb {
+    background-image: url(https://berogio.github.io/equalizer-landig/assets/images/icon-facebook.svg);
+    background-repeat: no-repeat
+}
+
+.insta {
+    background-image: url(https://berogio.github.io/equalizer-landig/assets/images/icon-instagram.svg);
+    background-repeat: no-repeat
+}
+
+.twiter {
+    background-image: url(https://berogio.github.io/equalizer-landig/assets/images/icon-twitter.svg);
+    background-repeat: no-repeat
+}
+
+.default:hover {
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    cursor: pointer;
+}

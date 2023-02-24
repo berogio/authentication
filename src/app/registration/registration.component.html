@@ -1,21 +1,25 @@
-<form [formGroup]="RegForm" (ngSubmit)="onCreateUser()" method="POST">
-    <mat-form-field appearance="fill">
-        <mat-label>Vorname</mat-label>
-        <input matInput name="vorname" formControlName="Vorname" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Nachname</mat-label>
-        <input matInput name="nachname" formControlName="Nachname" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput name="email" formControlName="Email" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>password</mat-label>
-        <input matInput name="password" formControlName="Password" />
-    </mat-form-field>
-    <button mat-fab extended type="submit">Submit
-        <mat-icon>home</mat-icon>
+<div class="d-flex justify-content-center align-items-center">
+    <mat-card class="w-50">
+        <form [formGroup]="RegForm" (ngSubmit)="onCreateUser()" class="d-flex flex-column" method="POST">
+            <mat-form-field appearance="outline">
+                <mat-label>Vorname</mat-label>
+                <input matInput name="vorname" formControlName="Vorname" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Nachname</mat-label>
+                <input matInput name="nachname" formControlName="Nachname" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput name="email" formControlName="Email" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>password</mat-label>
+                <input matInput name="password" formControlName="Password" />
+            </mat-form-field>
+            <button mat-raised-button type="submit">Submit
+        <mat-icon>send</mat-icon>
     </button>
-</form>
+        </form>
+    </mat-card>
+</div>
