@@ -13,6 +13,7 @@ export class RegistrationComponent {
     Vorname: new FormControl('', [Validators.required]),
     Nachname: new FormControl('', Validators.required),
     Email: new FormControl('', [Validators.required, Validators.email]),
+    Password: new FormControl('', [Validators.required]),
   });
 
   onCreateUser() {

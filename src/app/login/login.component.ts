@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       }).then((response) => {
         if (response.status === 200) {
           this._router.navigate(['/panel']);
-        }
+        } else console.log('bad password or name');
       });
     }
   }
