@@ -17,7 +17,10 @@ export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
   });
 
   onSubmit() {
@@ -37,11 +40,12 @@ export class LoginComponent implements OnInit {
 
   onGetUsers() {
     if (this.loginForm.valid) {
-      fetch('http://localhost:8000/login', {
+      fetch('http://3.141.164.107:8000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.loginForm.value),
       }).then((response) => {
+        console.log(response);
         if (response.status === 200) {
           this._router.navigate(['/panel']);
         } else console.log('bad password or name');

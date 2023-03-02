@@ -1,3 +1,12 @@
 .example-container mat-form-field+mat-form-field {
     margin-left: 8px;
 }
+
+.buttonGroup {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.card {
+    margin: 20px;
+}

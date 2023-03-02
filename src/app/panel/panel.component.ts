@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { UsersService } from '../service/users.service';
 
 @Component({
   selector: 'app-panel',
@@ -10,6 +11,12 @@ import { map, startWith } from 'rxjs/operators';
   styleUrls: ['./panel.component.css'],
 })
 export class PanelComponent implements OnInit {
-  colorControl = new FormControl('primary' as ThemePalette);
-  ngOnInit(): void {}
+  public booksList: any;
+
+  constructor(private book: UsersService) {}
+  ngOnInit(): void {
+    this.book.getBooks().subscribe((res) => {
+      this.booksList = res;
+    });
+  }
 }

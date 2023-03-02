@@ -17,6 +17,10 @@
                 <mat-label>password</mat-label>
                 <input matInput name="password" formControlName="Password" />
             </mat-form-field>
+            <mat-checkbox formControlName="Check">
+                Ich stimme den AGB zu
+            </mat-checkbox>
+            <span *ngIf="this.RegForm.controls.Check.invalid" class="error"></span>
             <button mat-raised-button type="submit">Submit
         <mat-icon>send</mat-icon>
     </button>

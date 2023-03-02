@@ -10,15 +10,19 @@ import { Router } from '@angular/router';
 export class RegistrationComponent {
   constructor(private _router: Router) {}
   RegForm = new FormGroup({
+    Check: new FormControl('', Validators.required),
     Vorname: new FormControl('', [Validators.required]),
     Nachname: new FormControl('', Validators.required),
     Email: new FormControl('', [Validators.required, Validators.email]),
-    Password: new FormControl('', [Validators.required]),
+    Password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
   });
 
   onCreateUser() {
     if (this.RegForm.valid) {
-      fetch('http://localhost:8000/registration', {
+      fetch('http://3.141.164.107:8000/registration', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.RegForm.value),

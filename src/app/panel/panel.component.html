@@ -1,8 +1,28 @@
-<mat-form-field appearance="fill" [color]="colorControl.value!">
-    <mat-label>Color</mat-label>
-    <mat-select [formControl]="colorControl">
-        <mat-option value="primary">Primary</mat-option>
-        <mat-option value="accent">Accent</mat-option>
-        <mat-option value="warn">Warn</mat-option>
-    </mat-select>
-</mat-form-field>
+<div class="buttonGroup">
+    <a routerLink="/newitem">
+        <button mat-fab extended color="warn">
+            <mat-icon>assignment_ind</mat-icon>
+                 Add New Book
+        </button>
+    </a>
+    <a routerLink="/delete">
+        <button mat-fab extended color="warn">
+            <mat-icon>assignment_ind</mat-icon>
+                 Delete book
+        </button>
+    </a>
+</div>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of booksList">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{item.Img}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.Name}}</h5>
+                    <p class="card-text">{{item.Author}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

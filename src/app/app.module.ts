@@ -17,6 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NewItemComponent } from './new-item/new-item.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { MatCardModule } from '@angular/material/card';
     LoginComponent,
     PanelComponent,
     RegistrationComponent,
+    NewItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     HttpClientModule,
     MatCardModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
