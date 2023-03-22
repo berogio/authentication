@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { DeletebookComponent } from '../deletebook/deletebook.component';
+import { NewItemComponent } from '../new-item/new-item.component';
 import { UsersService } from '../service/users.service';
 
 @Component({
@@ -13,10 +12,17 @@ import { UsersService } from '../service/users.service';
 export class PanelComponent implements OnInit {
   public booksList: any;
 
-  constructor(private book: UsersService) {}
+  constructor(private book: UsersService, private MatDialog: MatDialog) {}
   ngOnInit(): void {
     this.book.getBooks().subscribe((res) => {
       this.booksList = res;
     });
+  }
+
+  openDialogDel() {
+    this.MatDialog.open(DeletebookComponent);
+  }
+  openDialogAdd() {
+    this.MatDialog.open(NewItemComponent);
   }
 }

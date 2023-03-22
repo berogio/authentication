@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NewItemComponent } from './new-item/new-item.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DeletebookComponent } from './deletebook/deletebook.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { NewItemComponent } from './new-item/new-item.component';
     PanelComponent,
     RegistrationComponent,
     NewItemComponent,
+    DeletebookComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { NewItemComponent } from './new-item/new-item.component';
     HttpClientModule,
     MatCardModule,
     MatCheckboxModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

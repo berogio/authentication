@@ -10,7 +10,7 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   getBooks(): Observable<any> {
-    return this.http.get<any>('http://localhost:8000/books').pipe(
+    return this.http.get<any>('http://3.141.164.107:8000/books').pipe(
       map((res: any) => {
         return res;
       })

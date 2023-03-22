@@ -1,18 +1,15 @@
 <div class="buttonGroup">
-    <a routerLink="/newitem">
-        <button mat-fab extended color="warn">
+    <button mat-fab extended color="warn" (click)="openDialogAdd()">
             <mat-icon>assignment_ind</mat-icon>
                  Add New Book
-        </button>
-    </a>
-    <a routerLink="/delete">
-        <button mat-fab extended color="warn">
+    </button>
+    <button mat-fab extended color="warn" (click)="openDialogDel()">
             <mat-icon>assignment_ind</mat-icon>
                  Delete book
         </button>
-    </a>
+
 </div>
-<div class="container">
+<div class="container default">
     <div class="row">
         <ng-container *ngFor="let item of booksList">
             <div class="card" style="width: 18rem;">
