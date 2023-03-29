@@ -24,7 +24,7 @@ export class NewItemComponent {
       if (response) {
         if (response.status === 201) {
           this.MatDialog.closeAll();
-          window.location.reload();
+          // window.location.reload();
         }
       }
     });

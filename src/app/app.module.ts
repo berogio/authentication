@@ -21,6 +21,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NewItemComponent } from './new-item/new-item.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DeletebookComponent } from './deletebook/deletebook.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { DeletebookComponent } from './deletebook/deletebook.component';
     MatCheckboxModule,
     MatDialogModule,
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
