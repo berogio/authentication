@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { NewItemComponent } from './new-item/new-item.component';
 import { PanelComponent } from './panel/panel.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
   {
     path: 'panel',
     component: PanelComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'registration',
