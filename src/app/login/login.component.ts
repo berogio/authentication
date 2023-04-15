@@ -9,8 +9,8 @@ import { UsersService } from '../service/users.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  public logined: boolean = false;
   constructor(private _router: Router, private usersService: UsersService) {}
-
   ngOnInit(): void {
     this.onGetUsers();
   }
@@ -45,8 +45,8 @@ export class LoginComponent implements OnInit {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.loginForm.value),
       }).then((response) => {
-        console.log(response);
         if (response.status === 200) {
+          this.logined = true;
           this._router.navigate(['/panel']);
         } else console.log('bad password or name');
       });

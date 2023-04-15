@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Users } from '../interface/users';
 
@@ -16,7 +16,7 @@ export class UsersService {
       })
     );
   }
-  // postUsers(): Observable<Users[]> {
-  //   return this.http.post<Users[]>('http://localhost:8000/');
-  // }
+  onAddBook(gio: any) {
+    return this.http.post<any>('http://localhost:8000/books', gio);
+  }
 }

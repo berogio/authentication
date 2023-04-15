@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { UsersService } from '../service/users.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-item',
@@ -8,25 +10,62 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./new-item.component.css'],
 })
 export class NewItemComponent {
-  constructor(private MatDialog: MatDialog) {}
-  Newbook = new FormGroup({
-    ISBN: new FormControl(''),
-    Name: new FormControl(''),
-    Author: new FormControl(''),
+  image: any;
+  ISBN: any;
+  Name: any;
+  Author: any;
+
+  constructor(
+    private MatDialog: MatDialog,
+    private http: UsersService,
+    private https: HttpClient,
+    private fb: FormBuilder
+  ) {}
+
+  AddBookForm = this.fb.group({
+    ISBN: ['', Validators.required],
+    Name: ['', Validators.required],
+    Author: ['', Validators.required],
   });
 
+  // Newbook = new FormGroup({
+  //   ISBN: new FormControl(''),
+  //   Name: new FormControl(''),
+  //   Author: new FormControl(''),
+  // });
+
+  selectedImg(event: any) {
+    const file = event.target.files[0];
+    this.image = file;
+  }
+
   onAddBook() {
-    fetch('http://3.141.164.107:8000/books', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(this.Newbook.value),
-    }).then((response) => {
-      if (response) {
-        if (response.status === 201) {
-          this.MatDialog.closeAll();
-          // window.location.reload();
+    if (this.AddBookForm.valid) {
+      this.ISBN = this.AddBookForm.controls.ISBN.value;
+      this.Name = this.AddBookForm.controls.Name.value;
+      this.Author = this.AddBookForm.controls.Author.value;
+      const formdata = new FormData();
+      formdata.append('prductImage', this.image);
+      formdata.append('ISBN', this.ISBN);
+      formdata.append('Name', this.Name);
+      formdata.append('Author', this.Author);
+      // this.https
+      //   .post<any>('http://localhost:8000/books', formdata)
+      //   .subscribe((e) => {
+      //     console.log(e);
+      //   });
+
+      fetch('http://localhost:8000/books', {
+        method: 'POST',
+        body: formdata,
+      }).then((response) => {
+        if (response) {
+          if (response.status === 201) {
+            this.MatDialog.closeAll();
+            // window.location.reload();
+          }
         }
-      }
-    });
+      });
+    }
   }
 }

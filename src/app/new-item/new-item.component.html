@@ -5,20 +5,20 @@
         <mat-card-subtitle>Please enter Information here</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <form [formGroup]="Newbook" method="POST" (ngSubmit)="onAddBook()">
+        <form [formGroup]="AddBookForm" method="POST" (ngSubmit)="onAddBook()">
             <mat-form-field appearance="outline">
                 <mat-label>ISBN</mat-label>
-                <input matInput name="c" formControlName="ISBN" />
+                <input matInput name="ISBN" formControlName="ISBN" />
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Book name</mat-label>
-                <input matInput name="a" formControlName="Name" />
+                <input matInput name="Name" formControlName="Name" />
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Author</mat-label>
-                <input matInput name="b" formControlName="Author" />
+                <input matInput name="Author" formControlName="Author" />
             </mat-form-field>
-            <input type="file">
+            <input type="file" name="prductImage" (change)="selectedImg($event)">
             <button mat-raised-button type="submit">Add Book
             </button>
         </form>
