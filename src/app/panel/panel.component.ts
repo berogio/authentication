@@ -17,6 +17,19 @@ export class PanelComponent implements OnInit {
     this.book.getBooks().subscribe((res) => {
       this.booksList = res;
     });
+
+    // fetch('http://3.141.164.107:8000/books')
+    //   .then((_) => _.json())
+    //   .then((res) => {
+    //     this.booksList = res;
+    //   });
+
+    // const getbooks = async () => {
+    //   this.booksList = await fetch('http://3.141.164.107:8000/books').then(
+    //     (_) => _.json()
+    //   );
+    // };
+    // getbooks();
   }
 
   openDialogDel() {

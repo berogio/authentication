@@ -20,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NewItemComponent } from './new-item/new-item.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 import { DeletebookComponent } from './deletebook/deletebook.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
@@ -49,6 +50,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatCardModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatMenuModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
