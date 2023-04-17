@@ -1,7 +1,7 @@
 <div class="navbar-wrapper">
     <nav class="navbar navbar-light  justify-content-between">
         <img src="https://authfront.s3.eu-central-1.amazonaws.com/image-from-rawpixel-id-6436489-original.png" alt="book img" class="logo">
-        <form class="form-inline">
+        <form class="form-inline" *ngIf="re">
             <a routerLink="login">
                 <button mat-fab extended color="warn">
                     <mat-icon>how_to_reg</mat-icon>
@@ -14,10 +14,17 @@
                          Registration
                 </button>
             </a>
-            <button mat-fab extended routerLink="/" color="primary">
+
+        </form>
+        <button mat-fab extended routerLink="/" color="primary">
             <mat-icon>home</mat-icon>
             Home
         </button>
-        </form>
+
+        <button mat-button [matMenuTriggerFor]="menu" *ngIf="isLogged">Menu</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item [value]="gender">{{gender}}</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
     </nav>
 </div>

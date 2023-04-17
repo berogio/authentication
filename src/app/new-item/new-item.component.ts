@@ -49,13 +49,14 @@ export class NewItemComponent {
       formdata.append('ISBN', this.ISBN);
       formdata.append('Name', this.Name);
       formdata.append('Author', this.Author);
+
       // this.https
       //   .post<any>('http://localhost:8000/books', formdata)
       //   .subscribe((e) => {
       //     console.log(e);
       //   });
 
-      fetch('http://localhost:8000/books', {
+      fetch('http://3.141.164.107:8000/books', {
         method: 'POST',
         body: formdata,
       }).then((response) => {

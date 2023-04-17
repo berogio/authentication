@@ -17,6 +17,10 @@ export class UsersService {
     );
   }
   onAddBook(gio: any) {
-    return this.http.post<any>('http://localhost:8000/books', gio);
+    return this.http.post<any>('http://3.141.164.107:8000/books', gio);
+  }
+
+  isLoggedIn() {
+    return sessionStorage.getItem('username') != null;
   }
 }

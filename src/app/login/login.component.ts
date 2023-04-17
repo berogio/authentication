@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '../service/users.service';
 
@@ -11,9 +16,6 @@ import { UsersService } from '../service/users.service';
 export class LoginComponent implements OnInit {
   public logined: boolean = false;
   constructor(private _router: Router, private usersService: UsersService) {}
-  ngOnInit(): void {
-    this.onGetUsers();
-  }
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -21,13 +23,16 @@ export class LoginComponent implements OnInit {
       Validators.required,
       Validators.minLength(5),
     ]),
+    confirmPassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
   });
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      this._router.navigate(['/panel']);
-    }
+  ngOnInit(): void {
+    this.onGetUsers();
   }
+
   getErrorMessage() {
     if (this.loginForm.controls.email.hasError('required')) {
       return 'You must enter a value';
@@ -46,6 +51,11 @@ export class LoginComponent implements OnInit {
         body: JSON.stringify(this.loginForm.value),
       }).then((response) => {
         if (response.status === 200) {
+          console.log(response.json());
+          sessionStorage.setItem(
+            'username',
+            JSON.stringify(this.loginForm.get('email')?.value)
+          );
           this.logined = true;
           this._router.navigate(['/panel']);
         } else console.log('bad password or name');
